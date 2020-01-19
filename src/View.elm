@@ -1,6 +1,6 @@
 module View exposing (view)
 
-import Dict exposing (Dict)
+import Dict
 import Element
     exposing
         ( Attribute
@@ -12,6 +12,7 @@ import Element
         , fill
         , layout
         , maximum
+        , modular
         , mouseOver
         , padding
         , paddingEach
@@ -26,7 +27,7 @@ import Element
 import Element.Background as Background
 import Element.Font as Font
 import Element.Input as Input
-import Html exposing (Html, br, div, h1, h2, small)
+import Html exposing (Html)
 import Model exposing (Model, choices)
 import Update exposing (Msg(..))
 
@@ -63,8 +64,6 @@ textBlock : Int -> Int -> Int -> String -> Element Msg
 textBlock size top bottom value =
     row
         [ width fill
-        , Font.center
-        , centerY
         , Font.size size
         , paddingEach { top = top, right = 0, left = 0, bottom = bottom }
         ]
@@ -151,13 +150,11 @@ view model =
         |> layout
             [ Background.color lightColor
             , padding 64
-            , Font.center
             , Font.color darkColor
             , Font.family
                 [ Font.external
                     { name = "Amatic SC"
                     , url = "https://fonts.googleapis.com/css?family=Amatic+SC:700&display=swap"
                     }
-                , Font.sansSerif
                 ]
             ]

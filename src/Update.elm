@@ -1,6 +1,6 @@
 module Update exposing (Msg(..), update)
 
-import Dict exposing (Dict)
+import Dict
 import Model exposing (Model, choices)
 
 
@@ -10,7 +10,7 @@ type Msg
 
 
 update : Msg -> Model -> Model
-update msg model =
+update msg _ =
     case msg of
         Submit value ->
             Dict.get value choices
