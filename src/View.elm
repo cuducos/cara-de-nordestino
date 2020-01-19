@@ -15,7 +15,7 @@ import Element.Background as Background
 import Element.Font as Font
 import Html exposing (Html)
 import Model exposing (Model, choices)
-import Styles exposing (asCard, button, darkColor, lightColor, prependTitle, primary, secondary)
+import Styles exposing (addFooter, addTitle, asCard, button, darkColor, lightColor, primary, secondary)
 import Update exposing (Msg(..))
 
 
@@ -72,8 +72,9 @@ view model =
                     question
     in
     contents
-        |> prependTitle
+        |> addTitle
         |> column asCard
+        |> addFooter
         |> layout
             [ Background.color lightColor
             , padding 64

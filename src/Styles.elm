@@ -1,13 +1,18 @@
-module Styles exposing (asCard, button, darkColor, lightColor, prependTitle, primary, secondary)
+module Styles exposing (addFooter, addTitle, asCard, button, darkColor, lightColor, primary, secondary)
 
 import Element
     exposing
         ( Attribute
         , Color
         , Element
+        , alignBottom
+        , alignRight
+        , alpha
         , centerX
         , centerY
         , fill
+        , height
+        , link
         , maximum
         , modular
         , mouseOver
@@ -81,14 +86,33 @@ secondary =
     textBlock 2 32 0
 
 
-prependTitle : List (Element Msg) -> List (Element Msg)
-prependTitle contents =
-    row [ fontSize 5 ] [ text "Você tem cara de nordestino?" ] :: contents
-
-
 asCard : List (Attribute Msg)
 asCard =
     [ centerY
     , centerX
     , width (fill |> maximum 768)
     ]
+
+
+addTitle : List (Element Msg) -> List (Element Msg)
+addTitle contents =
+    row [ fontSize 5 ] [ text "Você tem cara de nordestino?" ] :: contents
+
+
+addFooter : Element Msg -> Element Msg
+addFooter contents =
+    let
+        footer : Element Msg
+        footer =
+            row [ alignBottom, alignRight ]
+                [ link
+                    [ alignBottom
+                    , alignRight
+                    , alpha 0.2
+                    ]
+                    { url = "https://github.com/cuducos/cara-de-nordestino"
+                    , label = text "</>"
+                    }
+                ]
+    in
+    row [ width fill, height fill ] [ contents, footer ]
