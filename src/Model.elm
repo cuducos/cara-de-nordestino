@@ -32,7 +32,7 @@ choices =
         , ( "Santa Catarina", False )
         , ( "Sergipe", True )
         , ( "São Paulo", False )
-        , ( "Tocantins", True )
+        , ( "Tocantins", False )
         ]
 
 
